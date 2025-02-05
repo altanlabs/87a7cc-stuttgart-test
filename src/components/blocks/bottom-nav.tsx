@@ -7,25 +7,25 @@ const navItems = [
     label: "Material",
     icon: BookOpen,
     href: "/resources",
-    color: "text-pink-500",
-    hoverColor: "hover:text-pink-600",
-    bgColor: "bg-pink-100"
+    color: "text-blue-400",
+    hoverColor: "hover:text-blue-300",
+    bgColor: "bg-blue-950"
   },
   {
     label: "Suche",
     icon: Search,
     href: "/search",
-    color: "text-purple-500",
-    hoverColor: "hover:text-purple-600",
-    bgColor: "bg-purple-100"
+    color: "text-purple-400",
+    hoverColor: "hover:text-purple-300",
+    bgColor: "bg-purple-950"
   },
   {
     label: "Chat",
     icon: MessageCircle,
     href: "/chat",
-    color: "text-blue-500",
-    hoverColor: "hover:text-blue-600",
-    bgColor: "bg-blue-100"
+    color: "text-pink-400",
+    hoverColor: "hover:text-pink-300",
+    bgColor: "bg-pink-950"
   }
 ];
 
@@ -33,7 +33,7 @@ export function BottomNav() {
   const location = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 h-16 bg-white border-t-2 border-slate-200 shadow-lg">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 h-16 bg-slate-900/80 backdrop-blur-lg border-t border-slate-800">
       <div className="grid h-full grid-cols-3 mx-auto max-w-md">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -45,7 +45,7 @@ export function BottomNav() {
               to={item.href}
               className={cn(
                 "inline-flex flex-col items-center justify-center transition-all relative",
-                isActive ? item.color : "text-slate-400",
+                isActive ? item.color : "text-slate-600",
                 !isActive && item.hoverColor
               )}
             >
@@ -60,7 +60,7 @@ export function BottomNav() {
               </div>
               <span className={cn(
                 "text-xs transition-all",
-                isActive ? "font-medium" : "text-slate-600"
+                isActive ? "font-medium" : "text-slate-500"
               )}>
                 {item.label}
               </span>
