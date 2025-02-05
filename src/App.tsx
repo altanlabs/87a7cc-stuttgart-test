@@ -1,6 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./layout";
-import IndexPage from "./pages";
 import ResourcesPage from "./pages/resources";
 import SearchPage from "./pages/search";
 import ChatPage from "./pages/chat";
@@ -12,7 +11,7 @@ export default function App() {
     <>
       <Routes>
         <Route element={<Layout showHeader={false} showSidebar={false} showFooter={false} />}>
-          <Route path="/" element={<ResourcesPage />} />
+          <Route path="/" element={<Navigate to="/resources" replace />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/chat" element={<ChatPage />} />
