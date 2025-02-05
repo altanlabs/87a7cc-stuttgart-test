@@ -8,7 +8,7 @@ import { BottomNav } from "./components/blocks/bottom-nav";
 
 export default function App() {
   // Force dark mode
-  document.documentElement.classList.remove('light');
+  
   document.documentElement.classList.add('dark');
 
   return (

@@ -181,7 +181,7 @@ export default function Layout({
                         : "bg-muted text-muted-foreground"
                     }`}
                 >
-                  {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+                  {<MoonIcon \/>}
                 </Toggle>
               )}
 
