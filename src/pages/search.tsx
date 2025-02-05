@@ -3,7 +3,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Search as SearchIcon, Star, Magic, Sparkles, BookOpen, PenTool, Heart, Music, Palette } from "lucide-react";
+import { Search as SearchIcon, Star, Wand2, Sparkles, BookOpen, PenTool, Heart, Music, Palette } from "lucide-react";
 
 const trendingSearches = [
   "Grundschule Mathe",
@@ -30,7 +30,7 @@ export default function SearchPage() {
     <ScrollArea className="h-[calc(100vh-4rem)]">
       <div className="container p-4 pb-20 space-y-6">
         <div className="space-y-2 text-center">
-          <Magic className="w-12 h-12 text-purple-500 mx-auto" />
+          <Wand2 className="w-12 h-12 text-purple-500 mx-auto" />
           <h1 className="text-2xl font-bold tracking-tight text-slate-800">Suche</h1>
           <p className="text-slate-600">
             Entdecken Sie tolle Materialien für Ihren Unterricht
