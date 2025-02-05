@@ -7,12 +7,12 @@ import NotFound from "./pages/NotFound";
 import { BottomNav } from "./components/blocks/bottom-nav";
 
 export default function App() {
-  // Force light mode
-  document.documentElement.classList.remove('dark');
-  document.documentElement.classList.add('light');
+  // Force dark mode
+  document.documentElement.classList.remove('light');
+  document.documentElement.classList.add('dark');
 
   return (
-    <div className="bg-white">
+    <div className="bg-slate-950 min-h-screen">
       <Routes>
         <Route element={<Layout showHeader={false} showSidebar={false} showFooter={false} />}>
           <Route path="/" element={<Navigate to="/resources" replace />} />
