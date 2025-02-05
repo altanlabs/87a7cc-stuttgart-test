@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Send, Sparkles, GraduationCap, Wand2 } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Send, Sparkles, Wand2 } from "lucide-react";
 
 const messages = [
   {
@@ -26,31 +25,31 @@ const messages = [
 
 export default function ChatPage() {
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)]">
-      <div className="border-b-2 border-purple-200 p-4 flex items-center gap-4 bg-gradient-to-r from-purple-50 to-pink-50">
-        <div className="rounded-full bg-white p-2 shadow-sm border-2 border-purple-200">
-          <Wand2 className="w-6 h-6 text-purple-500" />
+    <div className="flex flex-col h-[calc(100vh-4rem)] bg-slate-950">
+      <div className="border-b border-slate-800 p-4 flex items-center gap-4 bg-slate-900/50 backdrop-blur-lg">
+        <div className="rounded-full bg-slate-800 p-2 shadow-inner border border-slate-700">
+          <Wand2 className="w-6 h-6 text-purple-400" />
         </div>
         <div>
-          <h1 className="font-semibold text-slate-800">Ihre Lehrerhilfe</h1>
-          <p className="text-sm text-slate-600">Immer mit Rat und Tat zur Seite</p>
+          <h1 className="font-semibold text-slate-200">Ihre Lehrerhilfe</h1>
+          <p className="text-sm text-slate-400">Immer mit Rat und Tat zur Seite</p>
         </div>
       </div>
 
-      <ScrollArea className="flex-1 p-4 bg-gradient-to-b from-white to-blue-50">
+      <div className="flex-1 p-4 overflow-auto bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="space-y-4 max-w-2xl mx-auto">
           {messages.map((message, index) => (
             <div key={index} className="space-y-4">
               <div className="flex items-start gap-3">
                 {message.type === "bot" && (
-                  <Avatar className="w-8 h-8 border-2 border-purple-200">
-                    <AvatarFallback className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-600">
+                  <Avatar className="w-8 h-8 border border-slate-700 bg-slate-800">
+                    <AvatarFallback className="bg-gradient-to-r from-purple-900 to-pink-900 text-purple-400">
                       AI
                     </AvatarFallback>
                   </Avatar>
                 )}
-                <Card className="p-4 max-w-[85%] bg-white border-2 border-purple-100 shadow-sm">
-                  <p className="text-sm text-slate-700">{message.content}</p>
+                <Card className="p-4 max-w-[85%] bg-slate-900 border border-slate-800 shadow-lg">
+                  <p className="text-sm text-slate-300">{message.content}</p>
                   {message.options && (
                     <div className="mt-3 flex flex-wrap gap-2">
                       {message.options.map((option, optionIndex) => (
@@ -58,14 +57,14 @@ export default function ChatPage() {
                           key={optionIndex}
                           variant="outline"
                           size="sm"
-                          className="text-xs border-2 border-purple-200 hover:bg-purple-50 text-slate-700"
+                          className="text-xs border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300"
                         >
                           {option}
                         </Button>
                       ))}
                     </div>
                   )}
-                  <span className="text-xs text-slate-400 mt-2 block">
+                  <span className="text-xs text-slate-500 mt-2 block">
                     {message.timestamp}
                   </span>
                 </Card>
@@ -73,24 +72,24 @@ export default function ChatPage() {
             </div>
           ))}
         </div>
-      </ScrollArea>
+      </div>
       
-      <div className="p-4 border-t-2 border-purple-200 bg-white">
+      <div className="p-4 border-t border-slate-800 bg-slate-900/50 backdrop-blur-lg">
         <div className="max-w-2xl mx-auto">
           <form className="flex gap-2">
             <Input 
               placeholder="Ihre Frage..." 
-              className="flex-1 border-2 border-purple-200 focus:border-purple-300"
+              className="flex-1 bg-slate-800 border-slate-700 text-slate-200 placeholder:text-slate-500 focus:border-purple-800"
             />
             <Button 
               size="icon" 
-              className="shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 shadow-md"
+              className="shrink-0 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-lg"
             >
               <Send className="h-4 w-4" />
             </Button>
           </form>
           <div className="mt-2 flex items-center gap-2 justify-center text-xs text-slate-500">
-            <Sparkles className="h-3 w-3 text-yellow-400" />
+            <Sparkles className="h-3 w-3 text-yellow-500" />
             <span>Ihre persönliche KI-Assistentin für den Schulalltag</span>
           </div>
         </div>
