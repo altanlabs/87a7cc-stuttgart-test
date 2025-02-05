@@ -3,24 +3,26 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Search as SearchIcon, Star, Clock, Sparkles, BookOpen, PenTool } from "lucide-react";
+import { Search as SearchIcon, Star, Magic, Sparkles, BookOpen, PenTool, Heart, Music, Palette } from "lucide-react";
 
 const trendingSearches = [
-  "Mathematik Grundschule",
-  "Deutsch Arbeitsblätter",
-  "Projektwochen Ideen",
-  "Klassenführung"
+  "Grundschule Mathe",
+  "Basteln mit Kindern",
+  "Lesespiele",
+  "Klassenregeln"
 ];
 
 const recentSearches = [
-  "Leseverständnis Übungen",
-  "Sachkunde Material",
-  "Elternabend Vorlage"
+  "Frühlingsgedichte",
+  "Bewegungsspiele",
+  "Buchstaben lernen"
 ];
 
 const categories = [
-  { icon: <BookOpen className="w-4 h-4 text-blue-400" />, name: "Fächer" },
-  { icon: <PenTool className="w-4 h-4 text-pink-400" />, name: "Aktivitäten" },
+  { icon: <BookOpen className="w-5 h-5 text-blue-500" />, name: "Schulfächer", color: "border-blue-200 hover:bg-blue-50" },
+  { icon: <PenTool className="w-5 h-5 text-pink-500" />, name: "Basteln", color: "border-pink-200 hover:bg-pink-50" },
+  { icon: <Music className="w-5 h-5 text-purple-500" />, name: "Musik", color: "border-purple-200 hover:bg-purple-50" },
+  { icon: <Palette className="w-5 h-5 text-orange-500" />, name: "Kunst", color: "border-orange-200 hover:bg-orange-50" },
 ];
 
 export default function SearchPage() {
@@ -28,9 +30,10 @@ export default function SearchPage() {
     <ScrollArea className="h-[calc(100vh-4rem)]">
       <div className="container p-4 pb-20 space-y-6">
         <div className="space-y-2 text-center">
+          <Magic className="w-12 h-12 text-purple-500 mx-auto" />
           <h1 className="text-2xl font-bold tracking-tight text-slate-800">Suche</h1>
           <p className="text-slate-600">
-            Finden Sie genau das, was Sie brauchen
+            Entdecken Sie tolle Materialien für Ihren Unterricht
           </p>
         </div>
 
@@ -38,16 +41,16 @@ export default function SearchPage() {
           <SearchIcon className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
           <Input 
             type="search" 
-            placeholder="Wonach suchen Sie?" 
-            className="w-full pl-9 border-slate-200"
+            placeholder="Was möchten Sie finden?" 
+            className="w-full pl-9 border-2 border-slate-200 focus:border-blue-300"
           />
         </div>
 
         <div className="grid gap-4">
-          <Card className="border-slate-200">
+          <Card className="border-2 border-purple-200">
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-yellow-400" />
+                <Sparkles className="w-5 h-5 text-yellow-500" />
                 <CardTitle className="text-lg text-slate-800">Beliebte Suchen</CardTitle>
               </div>
             </CardHeader>
@@ -56,7 +59,7 @@ export default function SearchPage() {
                 <Badge 
                   key={index}
                   variant="secondary"
-                  className="bg-blue-50 text-blue-600 hover:bg-blue-100 cursor-pointer"
+                  className="bg-gradient-to-r from-purple-50 to-pink-50 text-purple-600 hover:from-purple-100 hover:to-pink-100 cursor-pointer border-2 border-purple-200"
                 >
                   {term}
                 </Badge>
@@ -64,10 +67,10 @@ export default function SearchPage() {
             </CardContent>
           </Card>
 
-          <Card className="border-slate-200">
+          <Card className="border-2 border-pink-200">
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-purple-400" />
+                <Heart className="w-5 h-5 text-pink-500" />
                 <CardTitle className="text-lg text-slate-800">Letzte Suchen</CardTitle>
               </div>
             </CardHeader>
@@ -75,13 +78,13 @@ export default function SearchPage() {
               {recentSearches.map((term, index) => (
                 <div 
                   key={index}
-                  className="flex items-center justify-between p-2 rounded-md hover:bg-slate-50 cursor-pointer"
+                  className="flex items-center justify-between p-3 rounded-lg hover:bg-pink-50 cursor-pointer border-2 border-transparent hover:border-pink-200 transition-all"
                 >
                   <span className="text-sm text-slate-700">{term}</span>
                   <Button 
                     variant="ghost" 
                     size="icon" 
-                    className="h-8 w-8 text-yellow-400 hover:text-yellow-500 hover:bg-yellow-50"
+                    className="h-8 w-8 text-yellow-500 hover:text-yellow-600 hover:bg-yellow-50"
                   >
                     <Star className="h-4 w-4" />
                   </Button>
@@ -90,19 +93,19 @@ export default function SearchPage() {
             </CardContent>
           </Card>
 
-          <Card className="border-slate-200">
+          <Card className="border-2 border-blue-200">
             <CardHeader>
               <CardTitle className="text-lg text-slate-800">Kategorien</CardTitle>
               <CardDescription className="text-slate-600">
-                Nach Bereichen durchsuchen
+                Finden Sie genau das, was Sie suchen
               </CardDescription>
             </CardHeader>
-            <CardContent className="grid grid-cols-2 gap-2">
+            <CardContent className="grid grid-cols-2 gap-3">
               {categories.map((category, index) => (
                 <Button
                   key={index}
                   variant="outline"
-                  className="h-auto py-4 px-4 border-slate-200 hover:bg-slate-50"
+                  className={\`h-auto py-4 px-4 border-2 \${category.color} transition-all hover:shadow-md\`}
                 >
                   <div className="flex flex-col items-center gap-2">
                     {category.icon}
