@@ -11,7 +11,7 @@ const resources = [
     icon: <BookOpen className="w-8 h-8 text-pink-500" />,
     badge: "Beliebt",
     badgeColor: "bg-pink-100 text-pink-600",
-    color: "hover:border-pink-200",
+    color: "hover:border-pink-200"
   },
   {
     title: "Kreative Ecke",
@@ -19,7 +19,7 @@ const resources = [
     icon: <PenTool className="w-8 h-8 text-purple-500" />,
     badge: "Neu",
     badgeColor: "bg-purple-100 text-purple-600",
-    color: "hover:border-purple-200",
+    color: "hover:border-purple-200"
   },
   {
     title: "Klassenraum",
@@ -27,7 +27,7 @@ const resources = [
     icon: <Users className="w-8 h-8 text-blue-500" />,
     badge: "Inspiration",
     badgeColor: "bg-blue-100 text-blue-600",
-    color: "hover:border-blue-200",
+    color: "hover:border-blue-200"
   },
   {
     title: "Schuljahresplaner",
@@ -35,7 +35,7 @@ const resources = [
     icon: <Calendar className="w-8 h-8 text-green-500" />,
     badge: "Praktisch",
     badgeColor: "bg-green-100 text-green-600",
-    color: "hover:border-green-200",
+    color: "hover:border-green-200"
   }
 ];
 
@@ -47,7 +47,7 @@ const quickTips = [
 
 export default function ResourcesPage() {
   return (
-    <ScrollArea className="h-[calc(100vh-4rem)]">
+    <div className="h-[calc(100vh-4rem)] overflow-auto">
       <div className="container p-4 pb-20">
         <div className="space-y-6">
           <div className="space-y-2 text-center">
@@ -64,7 +64,7 @@ export default function ResourcesPage() {
 
           <div className="grid gap-4">
             {resources.map((resource, index) => (
-              <Card key={index} className={\`relative overflow-hidden border-2 transition-all \${resource.color} hover:shadow-lg\`}>
+              <Card key={index} className={`relative overflow-hidden border-2 transition-all ${resource.color} hover:shadow-lg`}>
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="rounded-xl p-2 bg-white shadow-sm">
                     {resource.icon}
@@ -135,6 +135,6 @@ export default function ResourcesPage() {
           </Card>
         </div>
       </div>
-    </ScrollArea>
+    </div>
   );
 }
