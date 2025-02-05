@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Bell, Settings, LogOut } from "lucide-react";
 import { Toggle } from "@radix-ui/react-toggle";
-import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
+import { MoonIcon } from "@radix-ui/react-icons";
 import { useTheme } from "@/theme/use-theme";
 import { useEffect, useRef } from "react";
 
@@ -105,7 +105,6 @@ export default function Layout({
   const { theme, setTheme } = useTheme();
   const initialThemeSet = useRef(false);
 
-  // Move theme parameter handling to useEffect
   useEffect(() => {
     if (initialThemeSet.current) return;
     
@@ -113,7 +112,6 @@ export default function Layout({
     const themeParam = queryParams.get('theme');
     if (themeParam === 'light' || themeParam === 'dark') {
       setTheme(themeParam);
-      // Remove the theme parameter from URL
       queryParams.delete('theme');
       const newSearch = queryParams.toString();
       const newUrl = `${location.pathname}${newSearch ? `?${newSearch}` : ''}${location.hash}`;
@@ -124,7 +122,6 @@ export default function Layout({
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-background text-foreground">
-      {/* Optional Sidebar */}
       {showSidebar && (
         <AppSidebar 
           className="h-full border-r border-border" 
@@ -136,9 +133,7 @@ export default function Layout({
         />
       )}
 
-      {/* Main Content */}
       <div className="flex flex-1 flex-col">
-        {/* Configurable Header */}
         {header && showHeader && (
           <header className="flex h-16 items-center justify-between border-b border-border px-6 bg-background">
             <div className="flex items-center gap-8">
@@ -148,7 +143,6 @@ export default function Layout({
                 </Link>
               )}
 
-              {/* Navigation Links */}
               {header.navigation && (
                 <nav className="flex items-center gap-6">
                   {header.navigation.map((item, index) => (
@@ -169,23 +163,16 @@ export default function Layout({
             </div>
 
             <div className="flex items-center gap-4">
-              {/* Theme Toggle */}
               {header.showThemeToggle && (
                 <Toggle
                   pressed={theme === "dark"}
                   onPressedChange={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className={`px-2 py-2 rounded-md flex items-center gap-2 transition-colors
-                    ${
-                      theme === "dark"
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-muted text-muted-foreground"
-                    }`}
+                  className="px-2 py-2 rounded-md flex items-center gap-2 transition-colors bg-accent text-accent-foreground"
                 >
-                  {<MoonIcon \/>}
+                  <MoonIcon />
                 </Toggle>
               )}
 
-              {/* Custom Actions */}
               {header.actions?.map((action, index) => (
                 <Button
                   key={index}
@@ -197,14 +184,12 @@ export default function Layout({
                 </Button>
               ))}
 
-              {/* Notifications */}
               {header.showNotifications && (
                 <Button variant="ghost" size="icon">
                   <Bell className="h-5 w-5" />
                 </Button>
               )}
 
-              {/* User Menu */}
               {header.showUserMenu && (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -229,12 +214,10 @@ export default function Layout({
           </header>
         )}
 
-        {/* Main Content Area */}
         <main className="flex-1 overflow-auto bg-background">
           <Outlet />
         </main>
 
-        {/* Footer */}
         {footer && showFooter && (
           <footer className="border-t border-border px-6 py-4 bg-background">
             <div className="flex items-center justify-center gap-4">
