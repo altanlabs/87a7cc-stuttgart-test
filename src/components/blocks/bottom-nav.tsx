@@ -1,21 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Book, Search, MessageSquare } from "lucide-react";
+import { BookOpen, Search, MessageCircle } from "lucide-react";
 
 const navItems = [
   {
-    label: "Resources",
-    icon: Book,
+    label: "Materialien",
+    icon: BookOpen,
     href: "/resources"
   },
   {
-    label: "Search",
+    label: "Suche",
     icon: Search,
     href: "/search"
   },
   {
-    label: "AI Chat",
-    icon: MessageSquare,
+    label: "Chat",
+    icon: MessageCircle,
     href: "/chat"
   }
 ];
@@ -24,7 +24,7 @@ export function BottomNav() {
   const location = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 h-16 bg-background/80 backdrop-blur-lg border-t border-border">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 h-16 bg-white border-t border-slate-200 shadow-sm">
       <div className="grid h-full grid-cols-3 mx-auto max-w-md">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -35,8 +35,8 @@ export function BottomNav() {
               key={item.href}
               to={item.href}
               className={cn(
-                "inline-flex flex-col items-center justify-center px-5 hover:bg-muted/50 transition-colors relative",
-                isActive && "text-primary"
+                "inline-flex flex-col items-center justify-center px-5 hover:bg-slate-50 transition-colors relative",
+                isActive && "text-blue-500"
               )}
             >
               <Icon className={cn(
@@ -45,12 +45,12 @@ export function BottomNav() {
               )} />
               <span className={cn(
                 "text-xs mt-1 transition-colors",
-                isActive ? "text-primary font-medium" : "text-muted-foreground"
+                isActive ? "text-blue-500 font-medium" : "text-slate-600"
               )}>
                 {item.label}
               </span>
               {isActive && (
-                <span className="absolute -top-0.5 left-1/2 w-12 h-0.5 bg-primary -translate-x-1/2" />
+                <span className="absolute -top-0.5 left-1/2 w-12 h-0.5 bg-blue-500 -translate-x-1/2" />
               )}
             </Link>
           );
