@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { BookOpen, Search, MessageCircle } from "lucide-react";
+import { BookOpen, GraduationCap, MessageCircle } from "lucide-react";
 
 const navItems = [
   {
@@ -12,9 +12,9 @@ const navItems = [
     bgColor: "bg-blue-950"
   },
   {
-    label: "Suche",
-    icon: Search,
-    href: "/search",
+    label: "Unterricht",
+    icon: GraduationCap,
+    href: "/lesson-planner",
     color: "text-purple-400",
     hoverColor: "hover:text-purple-300",
     bgColor: "bg-purple-950"
