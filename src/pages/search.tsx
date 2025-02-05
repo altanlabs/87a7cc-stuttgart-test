@@ -22,7 +22,7 @@ const categories = [
   { icon: <BookOpen className="w-5 h-5 text-blue-500" />, name: "Schulfächer", color: "border-blue-200 hover:bg-blue-50" },
   { icon: <PenTool className="w-5 h-5 text-pink-500" />, name: "Basteln", color: "border-pink-200 hover:bg-pink-50" },
   { icon: <Music className="w-5 h-5 text-purple-500" />, name: "Musik", color: "border-purple-200 hover:bg-purple-50" },
-  { icon: <Palette className="w-5 h-5 text-orange-500" />, name: "Kunst", color: "border-orange-200 hover:bg-orange-50" },
+  { icon: <Palette className="w-5 h-5 text-orange-500" />, name: "Kunst", color: "border-orange-200 hover:bg-orange-50" }
 ];
 
 export default function SearchPage() {
@@ -105,7 +105,7 @@ export default function SearchPage() {
                 <Button
                   key={index}
                   variant="outline"
-                  className={\`h-auto py-4 px-4 border-2 \${category.color} transition-all hover:shadow-md\`}
+                  className={`h-auto py-4 px-4 border-2 ${category.color} transition-all hover:shadow-md`}
                 >
                   <div className="flex flex-col items-center gap-2">
                     {category.icon}
