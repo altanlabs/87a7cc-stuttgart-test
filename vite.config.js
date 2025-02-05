@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import * as path from 'path';
-// https://vitejs.dev/config/
+
 export default defineConfig({
     plugins: [react()],
     resolve: {
@@ -17,5 +17,21 @@ export default defineConfig({
                 warn(warning);
             }
         }
+    },
+    // Add base configuration for production
+    base: '/',
+    // Add server configuration
+    server: {
+        port: 3000,
+        host: true
+    },
+    // Optimize build settings
+    optimizeDeps: {
+        include: ['react', 'react-dom', 'react-router-dom']
+    },
+    // Add preview configuration
+    preview: {
+        port: 3000,
+        host: true
     }
 });
